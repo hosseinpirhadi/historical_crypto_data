@@ -26,6 +26,75 @@
 
     The main script `main.py` will be executed, which will fetch historical candlestick data for predefined cryptocurrency pairs and store it in the PostgreSQL database.
 
+# Binding an IP to localhost in Linux and Windows
+
+## Linux
+
+1. **Open the Terminal:**
+   - Press `Ctrl + Alt + T` to open the terminal.
+
+2. **Edit the `/etc/hosts` file:**
+   - Use a text editor such as `nano` or `vim`. You might need superuser privileges to edit this file.
+
+   ```bash
+   sudo nano /etc/hosts
+   ```
+
+3. **Add the IP Address:**
+   - At the end of the file, add a new line with the IP address you want to bind to `localhost`. For example, to bind `postgres_crypto` to `localhost`, you would add:
+
+   ```plaintext
+   127.0.0.1   postgres_crypto
+   ```
+
+4. **Save and Exit:**
+   - If you are using `nano`, press `Ctrl + X` to save and exit, then press `Y` and `Enter`.
+
+5. **Verify the Changes:**
+   - You can verify the changes by pinging `localhost` and the bound IP address.
+
+   ```bash
+   ping localhost
+   ping 192.168.1.100
+   ```
+
+## Windows
+
+1. **Open Notepad as Administrator:**
+   - Click on the Start menu, type `Notepad`, right-click on the Notepad application, and select `Run as administrator`.
+
+2. **Open the `hosts` file:**
+   - In Notepad, go to `File` -> `Open`.
+   - Navigate to `C:\Windows\System32\drivers\etc\hosts`. Ensure you select `All Files` in the file type dropdown to see the `hosts` file.
+
+3. **Add the IP Address:**
+   - At the end of the file, add a new line with the IP address you want to bind to `localhost`. For example, to bind `postgres_crypto` to `localhost`, you would add:
+
+   ```plaintext
+   127.0.0.1   postgres_crypto
+   ```
+
+4. **Save and Exit:**
+   - Save the file (`File` -> `Save`) and close Notepad.
+
+5. **Verify the Changes:**
+   - Open Command Prompt (you might need to run it as an administrator) and ping `localhost` and the bound IP address.
+
+   ```cmd
+   ping localhost
+   ping 192.168.1.100
+   ```
+
+## Notes
+
+- **Local Binding Context:** Binding an IP address to `localhost` is typically used for testing purposes and should be done with caution to avoid network conflicts.
+- **DNS Cache:** After making these changes, you might need to clear your DNS cache for the changes to take effect immediately. This can be done with the following commands:
+  - **Linux:** `sudo systemctl restart network.service` or `sudo /etc/init.d/networking restart`.
+  - **Windows:** `ipconfig /flushdns`.
+
+By following these steps, you can bind an IP address to `localhost` on both Linux and Windows systems.
+
+
 ## Using Power BI for Data Visualization
 
 ### Export Data to Power BI
