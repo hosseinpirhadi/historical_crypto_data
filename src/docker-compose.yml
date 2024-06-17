@@ -1,0 +1,30 @@
+---
+services:
+  postgres_crypto:
+    container_name: crypto_postgres
+    build:
+      context: .
+      dockerfile: ./postgres/Dockerfile
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: crypto
+      POSTGRES_USER: zap
+      POSTGRES_PASSWORD: express
+    networks:
+      - services
+
+  python_app:
+    build: ./python_container
+    container_name: python_app
+    environment:
+      - DATABASE_URI=postgresql+psycopg2://zap:express@postgres_crypto:5432/crypto
+    depends_on:
+      - postgres_crypto
+    networks:
+      - services
+
+networks: 
+  services:
+    name: service_network
+    driver: bridge

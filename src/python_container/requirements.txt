@@ -1,0 +1,6 @@
+python-binance
+pandas
+sqlalchemy
+psycopg2-binary
+tqdm
+websocket
