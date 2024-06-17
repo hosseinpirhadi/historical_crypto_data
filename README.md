@@ -28,8 +28,6 @@
 
 ## Using Power BI for Data Visualization
 
-## Using Power BI for Data Visualization
-
 ### Export Data to Power BI
 
 1. Ensure your PostgreSQL database is accessible and properly configured to allow remote connections.
